@@ -64,56 +64,37 @@ Modern LLaMA-style decoder-only transformer:
 The model converged cleanly with train and val losses nearly identical throughout — it genuinely learned the distribution rather than memorizing.
 
 ## Project Structure
+
+```
 tinystories-from-scratch/
-
 ├── src/
-
 │   ├── config.py        # All hyperparameters (single source of truth)
-
 │   ├── tokenizer.py     # Byte-level BPE encoder/decoder
-
 │   ├── model.py         # Full transformer (RMSNorm, RoPE, SwiGLU, etc.)
-
 │   └── dataset.py       # Memory-mapped binary loader
-
 │
-
 ├── tokenizer/           # Trained 32K vocabulary
-
 │   ├── vocab.json
-
 │   ├── merges.txt
-
 │   └── special_tokens.json
-
 │
-
 ├── samples/
-
 │   └── examples.md      # Generated outputs with metrics
-
 │
-
 ├── train_tokenizer.py   # One-time: trains BPE vocab
-
 ├── pretokenize.py       # One-time: text corpus → uint16 binary
-
 ├── train.py             # Training loop (resumable, MLflow logging)
-
 ├── sample.py            # Interactive generation with metrics
-
 │
-
 ├── requirements.txt
-
 ├── LICENSE
-
 └── README.md
+```
 
 ## Setup
 
 ```bash
-git clone https://github.com/khurramhashmat/tinystories-from-scratch.git
+git clone https://github.com/KhurramHashmat/tinystories-from-scratch.git
 cd tinystories-from-scratch
 
 # Create virtual environment
@@ -164,61 +145,33 @@ python sample.py
 ```
 
 This launches an interactive generation session with confidence metrics:
+
+```
 Loading model...
+  ✓ best.pt from step 5000 (val loss: 1.2048)
+  ✓ BPETokenizer(vocab_size=32000, ...)
 
-✓ best.pt from step 5000 (val loss: 1.2048)
-
-✓ BPETokenizer(vocab_size=32000, ...)
 PRESET PROMPTS
-
 --- Prompt: 'Once upon a time, there was a little girl named Lily' ---
-
 [generates a story]
+  📊 Metrics:
+     Generated tokens:  141
+     Avg confidence:    0.680
+     Avg entropy:       0.959
+     Gen perplexity:    1.74
 
-📊 Metrics:
-
-Generated tokens:  141
-
-Avg confidence:    0.680
-
-Avg entropy:       0.959
-
-Gen perplexity:    1.74
 INTERACTIVE MODE
-
-
-
-The little dragon
-
+>>> The little dragon
 [generates]
 
-
-
-
-
-
-temp=0.3: The little dragon
-
+>>> temp=0.3: The little dragon
 [same prompt at lower temperature — more conservative]
 
-
-
-
-
-
-settings
-
+>>> settings
 [change defaults]
 
-
-
-
-
-
-quit
-
-
-
+>>> quit
+```
 
 Per-generation metrics are also logged to MLflow (`tiny-transformer-inference` experiment) for later analysis.
 
@@ -263,4 +216,4 @@ Trained entirely on a single laptop:
 
 ## License
 
-MIT — see [LICENSE](LICENSE)
+MIT — see [LICENSE](LICENSE).
