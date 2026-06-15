@@ -1,0 +1,12 @@
+{
+  "special_tokens": [
+    "<|pad|>",
+    "<|endoftext|>",
+    "<|bos|>",
+    "<|im_start|>",
+    "<|im_end|>"
+  ],
+  "pad_token_id": 0,
+  "eos_token_id": 1,
+  "bos_token_id": 2
+}

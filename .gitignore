@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.pytest_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Data files (large, hosted on Hugging Face)
+data/
+
+# Training artifacts (hosted on Hugging Face)
+checkpoints/
+
+# MLflow (local tracking)
+mlruns/
+mlartifacts/
+mlflow.db
+
+# Local test scripts (not for publication)
+tests/
+
+# Personal/local files (not for repo)
+Inference Doc.docx
+demo_output.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temp
+*.tmp
+*.log

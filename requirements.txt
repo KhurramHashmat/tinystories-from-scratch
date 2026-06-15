@@ -1,0 +1,8 @@
+--extra-index-url https://download.pytorch.org/whl/cu121
+torch>=2.8.0
+numpy>=1.26.0
+mlflow>=2.11.0
+gradio>=4.20.0
+tqdm>=4.66.0
+regex>=2023.12.25
+streamlit
